@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 222 47% 5%;
+  --foreground: 0 0% 98%;
+  --card: 222 40% 8%;
+  --card-foreground: 0 0% 98%;
+  --popover: 222 40% 8%;
+  --popover-foreground: 0 0% 98%;
+  --primary: 0 0% 98%;
+  --primary-foreground: 222 47% 5%;
+  --secondary: 222 28% 12%;
+  --secondary-foreground: 0 0% 98%;
+  --muted: 222 26% 15%;
+  --muted-foreground: 220 10% 70%;
+  --accent: 222 26% 15%;
+  --accent-foreground: 0 0% 98%;
+  --border: 222 18% 18%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100dvh;
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.04), transparent 26%),
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.03), transparent 22%),
+    linear-gradient(180deg, #090b12 0%, #0b1020 50%, #090b12 100%);
+  color: hsl(var(--foreground));
+  font-family: var(--font-nunito), sans-serif;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+::selection {
+  background: rgba(244, 114, 182, 0.35);
+  color: white;
+}
+
+.font-display {
+  font-family: var(--font-space-grotesk), sans-serif;
+}
+
+.glass-panel {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.035);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 18px 60px rgba(8, 12, 24, 0.16);
+}
+
+.cute-chip {
+  position: relative;
+  overflow: hidden;
+}
+
+.cute-chip::after {
+  content: "";
+  position: absolute;
+  inset: auto -20% -55% auto;
+  width: 100px;
+  height: 100px;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(255,255,255,0.08), transparent 68%);
+  pointer-events: none;
+}
+
+.cute-chip:hover {
+  transform: translateY(-2px);
+  transition: transform 220ms ease;
+}
+
+.cute-chip:hover::after {
+  background: radial-gradient(circle, rgba(255,255,255,0.12), transparent 68%);
+}
+
+.animate-float-soft {
+  animation: float-soft 7.5s ease-in-out infinite;
+}
+
+.hero-grid {
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 36px 36px;
+  mask-image: radial-gradient(circle at center, black 42%, transparent 100%);
+}
+
+.soft-marquee {
+  display: flex;
+  gap: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.soft-marquee-track {
+  display: flex;
+  gap: 1rem;
+  min-width: max-content;
+  animation: marquee 26s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
